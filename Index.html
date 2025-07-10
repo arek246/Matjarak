@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجري</title>
+  <style>
+  .product-image-wrapper {
+  position: relative;
+}
+
+.sold-out-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom-left-radius: 6px;
+  z-index: 2;
+}
+  
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #fff6f6;
+    }
+
+    header {
+      background-color:#E8A;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-img {
+  width: 100px;
+  height: 96px;
+}
+ img{
+      width:1200px;
+      height:200px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #4a4a4a;
+      
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #fff6f6;
+      background-color: #fff6f6;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+      transition: right 0.3s;
+      padding: 0%;
+      z-index: 100;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #e8a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .search-bar {
+      margin: 15px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      background-color:#FADADD ;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .product {
+      background-color: #ffffff;
+      width: 45%;
+      margin: 10px 0;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .product h3 {
+      margin: 0 0 5px;
+      font-size: 16px;
+    }
+
+    .product p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .buy-button {
+      margin-top: 10px;
+      background-color:#E8A ;
+      color:  #fff6f6 ;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #E8A;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <img class="logo-img" src="logoo.png" alt="my logo" >
+    <div class="logo">افضل متجر سوداني </div>
+    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+  </header>
+
+ 
+  
+
+<div class="sidebar" id="sidebar">
+  <button onclick="window.location.href='https://wa.me/249122892258?text=مرحبا،%20أريد%20الاستفسار'">للاستفسار</button>
+  <button onclick="window.location.href='https://wa.me/249122892258?text=مرحبا،%20أريد%20تقييمكم'">قيّمنا</button>
+  <button onclick="scrollToFooter()">كيفية الطلب والتوصيل</button>
+</div>
+
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="ابحث عن منتج..." onkeyup="searchProducts()">
+  </div>
+
+  <div class="products" id="productList">
+    <!--منتج منتخي-->
+    <div class="product" data-name="دراعه استان شماري">
+  <h3>استان شماري</h3>
+  <div class="product-image-wrapper">
+    <span class="sold-out-label">نفذت الكمية</span>
+    <img src="11.jpg" alt="ساعة رقمية">
+  </div>
+  <p>🌼الوصف :فستان + جاكيت + حزام 
+🌼الخامة : فستان رويال فاخر+ جاكيت ستان شمر🔥
+🌼 المقاس : فري سايز من وزن 60 لي 80 كيلو </p>
+  <p>السعر هديه
+  <strong>٥ الف فقط </strong></p>
+  <a href="#" class="buy-button" style="pointer-events: none; opacity: 0.6;">Buy now</a>
+</div>
+
+    
+
+
+    <!-- متج ١ -->
+    <div class="product" data-name="جيب شورت">
+      <h3>جيب شورت</h3>
+      <img src="JEEP.jpg" alt="منتج 2">
+       <p>
+         بلبس من وزن  50 لي 80 كيلو 
+في الحقيقة اسمح من الصوره 
+
+  
+ توصيلنا فوري داخل القضارف وبورسودان 
+وكافة ولايات السودان
+       </p>
+      <p><strong>السعر ١٩.٩٩٩</strong></p>
+      <a href="https://wa.me/+249122892258" class="buy-button" target="_blank">Buy now</a>
+    </div>
+
+    <!-- 2 -->
+  
+
+    <div class="product" data-name="الأدناء">
+      <h3> الادناء الجديد</h3>
+      <img src="3.jpg" alt="">
+       <p>
+         ادناء قطعتين🔥❤️
+الخامة كريب فاخر 
+المفاس بتلبس من 60 ل 95 ك
+       </p>
+        
+      <p><strong> السعر ٣٩.٩٩٩</strong></p>
+      <a href="https://wa.me/+249122892258" class="buy-button" target="_blank">Buy now</a>
+    </div>
+    <!--3-->
+     <div class="product" data-name="دراعه الاميره pro">
+      <h3> دراعه الاميره</h3>
+      <img src="DRAA.jpg" alt="">
+       <p>
+         دراعة+ حزام
+الخامة أسكوبا فاخرة 
+المقاس فري سايز من وزن 60 لي 80 كيلو 
+       </p>
+        
+      <p><strong> السعر ٣٩.٩٩٩</strong></p>
+      <a href="https://wa.me/+249122892258" class="buy-button" target="_blank">Buy now</a>
+    </div>
+    <!--٤-->
+      <div class="product" data-name="دراعه سعوديه Pro">
+      <h3> دراعه سعوديه</h3>
+      <img src="4.jpg" alt="">
+       <p>
+         دراعة خامة ستان سعودي اصلي ❤️❤️❤️
+
+ في منها مصري وسعودي ونحنا شغالين علي السعوديه الاصليه  
+
+لو م لقيتيها نفس الصور رجعيها
+المقاسات من وزن 50الي100
+       </p>
+        
+      <p><strong> السعر ٥٩.٩٩٩</strong></p>
+      <a href="https://wa.me/+249122892258" class="buy-button" target="_blank">Buy now</a>
+    </div>
+    
+    
+    <!--٥-->
+      <div class="product" data-name="دراعه ٣ قطع pro">
+      <h3> دراعه طقم ٣ قطع </h3>
+      <img src="5.jpg" alt="">
+       <p>
+         دراعة طقم 3 قطع 💫❤️
+فستان  +جكت + حزام 
+فستان ستان تركي +الجكت شفون 
+فري سايز لحدي وزن 85
+متوفرة ألوان العرض 
+ا
+       </p>
+        
+      <p><strong> السعر ٥٩.٩٩٩</strong></p>
+      <a href="https://wa.me/+249122892258" class="buy-button" target="_blank">Buy now</a>
+    </div>
+    <!--٦-->
+      <div class="product" data-name="فستان سهري">
+      <h3> فستان سهري</h3>
+      <img src="6.jpg" alt="">
+       <p>
+         فستان سهرة بألوان مميزة🌼❤️
+
+🌼الخامة ستان سعودي أصلي 🔥
+🌼المقاسات من وزن 50 ل100كيلو 
+       </p>
+        
+      <p><strong>السعر ٦٩.٩٩٩ </strong></p>
+      <a href="https://wa.me/+249122892258" class="buy-button" target="_blank">Buy now</a>
+    </div>
+    <!--٧-->
+      <div class="product" data-name="دؤاعه">
+      <h3> دراعه</h3>
+      <img src="7.jpg" alt="">
+       <p>
+         دراعه❤️🔥
+
+🌼الخامة ستان شمر 
+🌼المقاس فري سايز لحدي وزن 90 
+       </p>
+        
+      <p><strong> السعر ٥٩.٩٩٩</strong></p>
+      <a href="https://wa.me/+249122892258" class="buy-button" target="_blank">Buy now</a>
+    </div>
+
+    
+  </div>
+
+  <footer id="footer">
+    <p>
+     كيفيت الطلب:  
+      لطلب المنتج اضغط علي زر(اشتري الان)
+     سيحولك هذا الي واتساب الخاص بنا ارسل لنا اسم المنتج وعنوانك وسيصلك المنتج خلال ٢٤ ساعه 
+     ملاحظه التوصيل الي كل انحاء السودان
+    </p>
+    <p> <strong>
+      او يمكنك الطلب عبر رقمنا 
+    249122892258
+      وارسل لنا اسم المنتج
+    </strong></p>
+  </footer>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("open");
+    }
+
+    function scrollToFooter() {
+      document.getElementById("footer").scrollIntoView({ behavior: 'smooth' });
+      document.getElementById("sidebar").classList.remove("open");
+    }
+
+    function searchProducts() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const products = document.querySelectorAll(".product");
+      products.forEach(product => {
+        const name = product.getAttribute("data-name").toLowerCase();
+        product.style.display = name.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
